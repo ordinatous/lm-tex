@@ -102,7 +102,7 @@ On créera ensuite son lien avec cette commande:
 * `% \def\reference{\href{https://lien.web}{reference}\xspace}`
 
 * Vrai lien
-* `\def\ordinatous{\href{https://ordinatous.com}{}\xspace}`
+* `\def\ordinatous.com{\href{https://ordinatous.com}{ordinatous.com}\xspace}`
 
 Le lien sera alors cliquable.
 
