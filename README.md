@@ -88,6 +88,23 @@ par défaut elle est à 10 :
 \end{document}
 ```
 Mais là n'est pas le sujet...
+L'édition en `TeX` demande quelques packages pour obtenir l'effet attendu , par exemple on peut créer des réferences et les liens vers les sites à visiter.
+
+Cette fonction réclame ces packages particulier:
+
+```tex
+\usepackage{hyperref}
+\usepackage{xspace}
+```
+On créera ensuite son lien avec cette commande:
+
+* Exemple:
+* `% \def\reference{\href{https://lien.web}{reference}\xspace}`
+
+* Vrai lien
+* `\def\ordinatous{\href{https://ordinatous.com}{}\xspace}`
+
+Le lien sera alors cliquable.
 
 ```
 %----------------------------------------------------------------------------------------
@@ -100,7 +117,8 @@ Mais là n'est pas le sujet...
 \usepackage{fontspec} % Autorise la customization
 \usepackage{marvosym} % Autorise l'utilisation des symbols
 \usepackage[french]{babel} % Requis pour compiler avec Windows
-
+\usepackage{hyperref}
+\usepackage{xspace}
 \setlength\parindent{0pt} % Enlève les indentations des paragraphes
 
 \defaultfontfeatures{Mapping=tex-text}
@@ -193,6 +211,8 @@ Direction des ressources humaines\\
 \setkomavar{subject}{Acte de Candidature} % On indique l'objet de notre lettre ici
 
 \opening {Madame, Monsieur;}
+
+Avant de se pencher sur le latin, vous pouvez visiter mon site : \ordinatous.com .
 
 Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. \\
 
