@@ -1,0 +1,143 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lettre de motivation
+% LaTeX Template
+% Version 1.1 (24/01/2018)
+% Auteur originale :
+% http://www.kindoblue.nl/articles/cover-letter-part1
+%
+%
+% Modifié afin d'obtenir un pied de page sur la seconde page
+% identique au premier pied de page.
+% Je me suis inspiré de ce post:
+% Source: https://tex.stackexchange.com/questions/196360/scrlttr2-make-second-page-footer-match-first-page-footer
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% IMPORTANT: A COMPILER AVEC LuaTEX OU XeLaTeX
+%
+% J'utilise la font Roboto-Light , très standard et légère à l'oeil.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES ET AUTRES CONFIGURATIONS DU DOCUMENT
+%----------------------------------------------------------------------------------------
+
+\documentclass{scrlttr2}
+\usepackage{blindtext}
+
+\usepackage{fontspec} % Autorise la customization
+\usepackage{marvosym} % Autorise l'utilisation des symbols
+\usepackage[french]{babel} % Requis pour compiler avec Windows
+
+\setlength\parindent{0pt} % Enlève les indentations des paragraphes
+
+\defaultfontfeatures{Mapping=tex-text}
+\setmainfont {Roboto-Light.ttf} % Font du document
+\setsansfont {Roboto-Light.ttf} % Used in the from address line above the to address
+
+
+\renewcommand{\normalsize}{\fontsize{12}{17}\selectfont} % Sets the font size and leading
+
+%----------------------------------------------------------------------------------------
+%  INFORMATIONS PERSONNELLES
+%----------------------------------------------------------------------------------------
+
+\setkomavar{fromname}{George Abitbol} % Votre nom
+\setkomavar{fromaddress}{255 Route de Pétaouchnock\\Pétaoucnock} % Votre adresse
+\setkomavar{fromphone}{(+33) 102030405} % Votre N° de Tel
+\setkomavar{fromemail}{george.abitbol@gmail.com} % Votre adresse courriel
+\setkomavar{place}{Pétaoucnock} % Indiquez la ville qui apparaitra devant la date
+\setkomavar{signature}{George Abitbol} % Votre nom pour la signature
+\setkomavar{fromurl}{https://george.abitbol.com/CV/} % Your personal website
+% These are not used in this document, uncomment if you would like to use them and refer to them as \usekomavar{name}
+
+%----------------------------------------------------------------------------------------
+%  HEADER SECTION
+%----------------------------------------------------------------------------------------
+
+\setkomavar{firsthead}{
+	\centering
+	{\addfontfeature{LetterSpace=15.0}\fontsize{36}{36}\selectfont\scshape \usekomavar{fromname}}\\[5mm]
+	\fontsize{21}{21}\selectfont\scshape L'Homme le classe du Monde } % Le poste pour lequel vous candidatez
+
+\setkomavar{firstfoot}{\parbox{\textwidth}{\centering%
+		{%
+			\renewcommand{\\}{~{\large\textperiodcentered}~}%
+			\usekomavar{fromaddress}%
+		}\\%
+		{\normalsize\Letter} \usekomavar{fromemail} \ {\Large\Telefon} \usekomavar{fromphone} \\
+		{\normalesize\at} \usekomavar{fromurl}% Ajouter
+	}
+}%
+%Simply reusing the variable
+\setkomavar{nextfoot}{\usekomavar{firstfoot}}
+%----------------------------------------------------------------------------------------
+\usepackage{scrlayer}
+\DeclareNewLayer[
+align=tl,
+hoffset=\dimexpr.5\paperwidth-.5\useplength{firstfootwidth}\relax,
+voffset=\useplength{firstfootvpos},
+width=\useplength{firstfootwidth},
+height=\dimexpr\paperheight-\useplength{firstfootvpos},
+foreground,
+contents={\parbox{\layerwidth}{\usekomavar{firstfoot}}}
+]{myfoot.fg}
+\DeclarePageStyleByLayers{myletter}{myfoot.fg}
+\pagestyle{myletter}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+% Contenu de la lettre
+%----------------------------------------------------------------------------------------
+
+\begin{letter}{ % Addresse de la société ou vous postulez
+Monsieur le Président de
+la Société la plus classe du Monde\\
+Direction des ressources humaines\\
+
+}
+
+\setkomavar{subject}{Acte de Candidature} % This is the bold text saying 'Cover Letter', remove it if you don't like it
+
+\opening {Madame, Monsieur;}
+
+
+Lorem ipsum is a pseudo-Latin text used in web design, typography, layout, and printing in place of English to emphasise design elements over content. \\
+
+It's also called placeholder (or filler) text. It's a convenient tool for mock-ups. It helps to outline the visual elements of a document or presentation, eg typography, font, or layout. Lorem ipsum is mostly a part of a Latin text by the classical author and philosopher Cicero. Its words and letters have been changed by addition or removal, so to deliberately render its content nonsensical; it's not genuine, correct, or comprehensible Latin anymore. While lorem ipsum's still resembles classical Latin, it actually has no meaning whatsoever. \\
+
+As Cicero's text doesn't contain the letters K, W, or Z, alien to latin, these, and others are often inserted randomly to mimic the typographic appearence of European languages, as are digraphs not to be found in the original.\\
+
+\begin{itemize}
+	\item Direction Interministérielle du Numérique et du Système d'Information et de Communication de l'État
+	\item Socle Interministériel de Logiciel Libre
+	\item Référentiel Général d'Interopérabilité
+	\item ou encore la Circulaire Ayrault du 19 septembre 2012
+\end{itemize}
+
+
+Cicero's version of Liber Primus (first Book), sections 1.10.32–3:\\
+
+Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo.\\
+
+Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit amet, consectetur, adipisci[ng] velit, sed quia non numquam [do] eius modi tempora inci[di]dunt, ut labore et dolore magnam aliquam quaerat voluptatem.\\
+
+Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit, qui in ea voluptate velit esse, quam nihil molestiae consequatur, vel illum, qui dolorem eum fugiat, quo voluptas nulla pariatur?\\
+
+In 1985 Aldus Corporation launched its first desktop publishing program Aldus PageMaker for Apple Macintosh computers, released in 1987 for PCs running Windows 1.0. \\
+
+Both contained the variant lorem ipsum most common today. Laura Perry, then art director with Aldus, modified prior versions of Lorem Ipsum text from typographical specimens; in the 1960s and 1970s it appeared often in lettering catalogs by Letraset. \\
+
+
+Souhaitant avoir retenu votre attention et dans l'attente d'une réponse de votre part , je reste disponible pour un complément d'informations et un éventuel entretien .
+
+Veuillez trouver ici l'expression de mes sincères salutations.
+
+\closing{}
+%----------------------------------------------------------------------------------------
+\end{letter}
+\end{document}
